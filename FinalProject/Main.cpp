@@ -7,6 +7,7 @@
 #include "GenerateMarble.h"
 #include "GenerateClouds.h"
 #include "GenerateSand.h"
+#include "GenerateBlot.h"
 
 using namespace std;
 
@@ -36,7 +37,7 @@ int main() {
 	else if (height > 4096) height = 4096;
 
 	clock_t startClock = clock(); // Measure the CPU clock cycles since last boot
-	Image *map = GenerateSand(width, height);
+	Image *map = GenerateBlot(width, height);
 	clock_t endClock = clock(); // Measure the CPU clock cycles since last boot
 
 	double executionSeconds = double(endClock - startClock) / CLOCKS_PER_SEC;

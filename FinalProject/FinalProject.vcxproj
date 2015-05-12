@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GenerateBlot.h" />
     <ClInclude Include="GenerateClouds.h" />
     <ClInclude Include="GenerateMarble.h" />
     <ClInclude Include="GenerateSand.h" />
