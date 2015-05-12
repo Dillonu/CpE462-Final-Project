@@ -27,6 +27,9 @@
     <ClInclude Include="GenerateMarble.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GenerateClouds.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
