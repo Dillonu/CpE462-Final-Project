@@ -25,10 +25,16 @@ Image* GenerateBlot(int width, int height, double zoom = 400.0, double persistan
 		for (int x = 0; x < width; x++) {
 			double xdis = sqr(x - width / 2);
 			double ydis = sqr(y - height / 2);
+			double distance = sqrt(xdis + ydis);
 			noise = generator.Turbulence(x*invZoom, y*invZoom, octaves, persistance);
-			noise = (noise+1.0)/0.5*(maxDistance - sqrt(xdis + ydis)) / maxDistance;
 
-			// Convert the -1.0 to 1.0 noise value to a 0 to 255 RGB value:
+			// Convert from -1.0 to 1.0 to be 0.0 to 4.0:
+			noise = (noise + 1.0) / 0.5;
+
+			// Make sure the blot is in the middle of the image:
+			noise = noise*(maxDistance - distance) / maxDistance;
+
+			// Convert to black and white:
 			if (noise > 0.6) value = 0;
 			else value = 255;
 
