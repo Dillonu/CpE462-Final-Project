@@ -5,7 +5,7 @@
 #include "Image.h"
 #include "Simplex.h"
 
-Image* GenerateMarble(int width, int height, double xFactor = 5.0 / 1000.0, double yFactor = 12.0 / 1000.0, double turbFactor = 1.0 / 800.0, double turbPower = 3.0, int turbSize = 10) {
+Image* GenerateMarble(int width, int height, double xFactor = 5.0 / 1000.0, double yFactor = 12.0 / 1000.0, double turbFactor = 1.0 / 800.0, double turbPower = 3.0, int octaves = 10) {
 	// Initialize Variables:
 	Image *terrain = new Image(width, height); // Output Map
 	double noise, amplitude; // Calculation Variables
@@ -19,7 +19,7 @@ Image* GenerateMarble(int width, int height, double xFactor = 5.0 / 1000.0, doub
 	// Loops through all the pixels
 	for (int y = 0; y < height; y++) {
 		for (int x = 0; x < width; x++) {
-			double xyValue = x*xFactor + y*yFactor + turbPower*generator.Turbulence(x*turbFactor, y*turbFactor, turbSize);
+			double xyValue = x*xFactor + y*yFactor + turbPower*generator.Turbulence(x*turbFactor, y*turbFactor, octaves);
 			noise = fabs(sin(xyValue*PI));
 
 			// Convert the 0.0 to 1.0 noise value to a 0 to 255 RGB value:

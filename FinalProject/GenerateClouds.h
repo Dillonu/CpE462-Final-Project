@@ -19,7 +19,7 @@ Image* GenerateClouds(int width, int height, double zoom = 150.0, double persist
 		for (int x = 0; x < width; x++) {
 			noise = generator.Turbulence(x*invZoom, y*invZoom, octaves, persistance);
 
-			// Convert the -1.0 to 1.0 noise value to a 0 to 255 RGB value:
+			// Convert the -1.0 to 1.0 noise value to a 0 to 127 RGB value:
 			value = int(noise * 64) + 64;
 			if (value > 127) value = 127;
 			if (value < 0) value = 0;

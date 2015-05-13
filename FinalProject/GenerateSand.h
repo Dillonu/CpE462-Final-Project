@@ -20,10 +20,10 @@ Image* GenerateSand(int width, int height, double xFactor = 5.0 / 1000.0, double
 	for (int y = 0; y < height; y++) {
 		for (int x = 0; x < width; x++) {
 			double xyValue = x*xFactor + y*yFactor + turbPower*generator.Turbulence(x*turbFactor, y*turbFactor, turbSize);
-			noise = fabs(sin(xyValue*PI)) + generator.Turbulence(x, y, turbSize)*0.05;
+			noise = fabs(sin(xyValue*PI)) + generator.Turbulence(x, y, turbSize)*0.1;
 			noise = sqrt(1.0 - noise);
 
-			// Convert the 0.0 to 1.0 noise value to a 0 to 255 RGB value:
+			// Convert the 0.0 to 1.0 noise value to a 90 to 140 RGB value:
 			value = int(noise * 50) + 90;
 			if (value > 140) value = 140;
 			if (value < 90) value = 90;

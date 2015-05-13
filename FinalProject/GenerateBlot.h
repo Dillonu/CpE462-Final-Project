@@ -13,7 +13,7 @@ Image* GenerateBlot(int width, int height, double zoom = 400.0, double persistan
 	// Initialize Variables:
 	Image *terrain = new Image(width, height); // Output Map
 	double noise, invZoom = 1.0 / zoom; // Calculation Variables
-	double maxDistance = min(width, height)*0.5;
+	double maxRadius = min(width, height)*0.5;
 	int value;
 
 	// Initialize Simplex Generator:
@@ -28,14 +28,14 @@ Image* GenerateBlot(int width, int height, double zoom = 400.0, double persistan
 			double distance = sqrt(xdis + ydis);
 			noise = generator.Turbulence(x*invZoom, y*invZoom, octaves, persistance);
 
-			// Convert from -1.0 to 1.0 to be 0.0 to 4.0:
-			noise = (noise + 1.0) / 0.5;
+			// Convert from -1.0 to 1.0 to be 0.0 to 1.0:
+			noise = (noise + 1.0) * 0.5;
 
 			// Make sure the blot is in the middle of the image:
-			noise = noise*(maxDistance - distance) / maxDistance;
+			noise = noise*(maxRadius - distance) / maxRadius;
 
 			// Convert to black and white:
-			if (noise > 0.6) value = 0;
+			if (noise > 0.15) value = 0;
 			else value = 255;
 
 			// Output heightmap to image:
