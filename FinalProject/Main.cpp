@@ -45,7 +45,8 @@ int main() {
 	cout << "3: Clouds\n";
 	cout << "4: Sand\n";
 	cout << "5: Blot\n";
-	cout << "6: Wood\n";
+	cout << "6: Wood - Top Grain\n";
+	cout << "7: Wood - Side Grain\n";
 	getline(cin, input);
 	if (!input.empty()) {
 		istringstream stream(input);
@@ -71,7 +72,10 @@ int main() {
 		map = GenerateBlot(width, height);
 		break;
 	case 6:
-		map = GenerateWood(width, height);
+		map = GenerateWoodTop(width, height);
+		break;
+	case 7:
+		map = GenerateWoodSide(width, height);
 		break;
 	default:
 		cout << "Try Again";
