@@ -36,6 +36,9 @@
     <ClInclude Include="GenerateBlot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GenerateWood.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

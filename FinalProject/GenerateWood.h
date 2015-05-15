@@ -14,9 +14,9 @@ Image* GenerateWood(int width, int height){
 	const double PI = 3.141592653589793238463;
 
 	double xyFactor = 10.0;
-	double turbFactor = 1;
-	double turbPower = .1;
-	int octaves = 1;
+	double turbFactor = 1.0 / 800.0;
+	double turbPower = 0.05;
+	int octaves = 10;
 
 
 	// Initialize Simplex Generator:

@@ -15,6 +15,7 @@
     <ClInclude Include="GenerateClouds.h" />
     <ClInclude Include="GenerateMarble.h" />
     <ClInclude Include="GenerateSand.h" />
+    <ClInclude Include="GenerateWood.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="GenerateTerrain.h" />
     <ClInclude Include="Simplex.h" />
