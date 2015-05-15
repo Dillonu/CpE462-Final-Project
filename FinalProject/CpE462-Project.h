@@ -1,8 +1,8 @@
 #ifndef _CPE462PROJECT_H_
 #define _CPE462PROJECT_H_
+#include <algorithm>
 #include <time.h>
 #include <math.h>
-#include <Windows.h>
 #include <iostream>
 #include <sstream>
 #include <string>
@@ -11,11 +11,12 @@
 
 using namespace std;
 
+typedef unsigned char BYTE;
+
 template <class T>
 T sqr(T x) {
 	return x*x;
 }
-
 
 struct Pixel {
 	union {
@@ -42,6 +43,7 @@ public:
 	Pixel* operator[](int y);
 };
 
+Image* GenerateBlood(int, int);
 Image* GenerateBlot(int, int);
 Image* GenerateClouds(int, int);
 Image* GenerateMarble(int, int);
