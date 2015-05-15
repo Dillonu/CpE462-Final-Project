@@ -1,11 +1,11 @@
-#pragma once
-#include <math.h>
-#include <time.h>
-#include <Windows.h>
-#include "Image.h"
-#include "Simplex.h"
+#include "CpE462-Project.h"
 
-Image* GenerateMarble(int width, int height, double xFactor = 5.0 / 1000.0, double yFactor = 12.0 / 1000.0, double turbFactor = 1.0 / 800.0, double turbPower = 3.0, int octaves = 10) {
+Image* GenerateMarble(int width, int height) {
+	double xFactor = 5.0 / 1000.0; 
+	double yFactor = 12.0 / 1000.0;
+	double turbFactor = 1.0 / 800.0; 
+	double turbPower = 3.0;
+	int octaves = 10;
 	// Initialize Variables:
 	Image *terrain = new Image(width, height); // Output Map
 	double noise, amplitude; // Calculation Variables

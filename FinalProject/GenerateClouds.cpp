@@ -1,10 +1,9 @@
-#pragma once
-#include <time.h>
-#include <Windows.h>
-#include "Image.h"
-#include "Simplex.h"
+#include "CpE462-Project.h"
 
-Image* GenerateClouds(int width, int height, double zoom = 150.0, double persistance = 0.50, int octaves = 6) {
+Image* GenerateClouds(int width, int height) {
+	double zoom = 150.0; 
+	double persistance = 0.50;
+	int octaves = 6;
 	// Initialize Variables:
 	Image *terrain = new Image(width, height); // Output Map
 	double noise, invZoom = 1.0 / zoom; // Calculation Variables

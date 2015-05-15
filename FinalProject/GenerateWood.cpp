@@ -1,9 +1,4 @@
-#pragma once
-#include <math.h>
-#include <time.h>
-#include <Windows.h>
-#include "Image.h"
-#include "Simplex.h"
+#include "CpE462-Project.h"
 
 Image* GenerateWoodTop(int width, int height){
 
@@ -13,7 +8,7 @@ Image* GenerateWoodTop(int width, int height){
 	int value;
 	const double PI = 3.141592653589793238463;
 
-	double xyFactor = 10.0;
+	double xyFactor = 8.0;
 	double turbFactor = 1.0 / 800.0;
 	double turbPower = 0.05;
 	int octaves = 10;
@@ -27,23 +22,23 @@ Image* GenerateWoodTop(int width, int height){
 	for (int y = 0; y < height; y++) {
 		for (int x = 0; x < width; x++) {
 
-			xValue = (x - width / 2)/((double)width);
+			xValue = (x - width / 2) / ((double)width);
 			yValue = (y - height / 2) / ((double)height);
 			turb = turbPower*generator.Turbulence(x*turbFactor, y*turbFactor, octaves);
 			distValue = (sqrt(xValue * xValue + yValue * yValue) + turb);
-			sineValue = 128*fabs(sin(2*distValue*PI*xyFactor));
-			
+			sineValue = 128 * fabs(sin(2 * distValue*PI*xyFactor));
+
 
 			// Convert the 0.0 to 1.0 noise value to a 0 to 255 RGB value:
 			value = int(sineValue);
-			if (value > 255)
-				value = 255;
+			if (value > 128)
+				value = 128;
 			else if (value < 0)
 				value = 0;
 
 			// Output heightmap to image:
-			(*terrain)[y][x].red = 80+value;
-			(*terrain)[y][x].green = 30+value;
+			(*terrain)[y][x].red = 80 + value;
+			(*terrain)[y][x].green = 30 + value;
 			(*terrain)[y][x].blue = 30;
 		}
 	}
@@ -59,7 +54,7 @@ Image* GenerateWoodSide(int width, int height){
 	int value;
 	const double PI = 3.141592653589793238463;
 
-	double xyFactor = 10.0;
+	double xyFactor = 2.0;	//Rings
 	double turbFactor = 1.0 / 800.0;
 	double turbPower = 0.05;
 	int octaves = 10;
@@ -82,8 +77,8 @@ Image* GenerateWoodSide(int width, int height){
 
 			// Convert the 0.0 to 1.0 noise value to a 0 to 255 RGB value:
 			value = int(sineValue);
-			if (value > 255)
-				value = 255;
+			if (value > 128)
+				value = 128;
 			else if (value < 0)
 				value = 0;
 

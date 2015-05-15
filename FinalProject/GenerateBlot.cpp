@@ -1,16 +1,10 @@
-#pragma once
-#include <time.h>
-#include <Windows.h>
-#include "Image.h"
-#include "Simplex.h"
+#include "CpE462-Project.h"
 
-template <class T>
-T sqr(T x) {
-	return x*x;
-}
-
-Image* GenerateBlot(int width, int height, double zoom = 400.0, double persistance = 0.50, int octaves = 4) {
+Image* GenerateBlot(int width, int height) {
 	// Initialize Variables:
+	double zoom = 400.0;
+	double persistance = 0.50;
+	int octaves = 4;
 	Image *terrain = new Image(width, height); // Output Map
 	double noise, invZoom = 1.0 / zoom; // Calculation Variables
 	double maxRadius = min(width, height)*0.5;

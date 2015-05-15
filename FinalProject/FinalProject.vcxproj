@@ -11,16 +11,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GenerateBlot.h" />
-    <ClInclude Include="GenerateClouds.h" />
-    <ClInclude Include="GenerateMarble.h" />
-    <ClInclude Include="GenerateSand.h" />
-    <ClInclude Include="GenerateWood.h" />
-    <ClInclude Include="Image.h" />
-    <ClInclude Include="GenerateTerrain.h" />
-    <ClInclude Include="Simplex.h" />
+    <ClInclude Include="CpE462-Project.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GenerateBlot.cpp" />
+    <ClCompile Include="GenerateClouds.cpp" />
+    <ClCompile Include="GenerateMarble.cpp" />
+    <ClCompile Include="GenerateSand.cpp" />
+    <ClCompile Include="GenerateTerrain.cpp" />
+    <ClCompile Include="GenerateWood.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Simplex.cpp" />

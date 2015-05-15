@@ -1,10 +1,9 @@
-#pragma once
-#include <time.h>
-#include <Windows.h>
-#include "Image.h"
-#include "Simplex.h"
+#include "CpE462-Project.h"
 
-Image* GenerateTerrain(int width, int height, double zoom=500.0, double persistance=0.50, int octaves=8) {
+Image* GenerateTerrain(int width, int height) {
+	double zoom = 500.0;
+	double persistance = 0.50;
+	int octaves = 8;
 	// Initialize Variables:
 	Image *terrain = new Image(width, height); // Output Map
 	double noise, invZoom = 1.0 / zoom; // Calculation Variables

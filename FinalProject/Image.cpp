@@ -1,4 +1,4 @@
-#include "Image.h"
+#include "CpE462-Project.h"
 
 Image::Image(int width, int height) {// : red(width, height), green(width, height), blue(width, height) {
 	this->width = width;
@@ -56,7 +56,7 @@ void Image::Save(string name) {
 
 	// Save Output to File:
 	ofstream file;
-	file.open(name, ios::out | ios::binary | ios::trunc);
+	file.open(name.c_str(), ios::out | ios::binary | ios::trunc);
 	if (file.is_open()) {
 		file.write(bmp, size);
 		file.close();

@@ -1,18 +1,4 @@
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <time.h>
-#include "Image.h"
-#include "GenerateTerrain.h"
-#include "GenerateMarble.h"
-#include "GenerateClouds.h"
-#include "GenerateSand.h"
-#include "GenerateBlot.h"
-#include "GenerateWood.h"
-
-using namespace std;
-
-
+#include "CpE462-Project.h"
 
 int main() {
 	string input;
@@ -100,7 +86,7 @@ int main() {
 		stream >> filename;
 	}
 
-	map->Save(filename);
+	map->Save(filename.c_str());
 	delete map;
 	system("PAUSE");
 

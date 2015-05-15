@@ -1,14 +1,14 @@
-#pragma once
-#include <math.h>
-#include <time.h>
-#include <Windows.h>
-#include "Image.h"
-#include "Simplex.h"
+#include "CpE462-Project.h"
 
-Image* GenerateSand(int width, int height, double xFactor = 5.0 / 1000.0, double yFactor = 12.0 / 1000.0, double turbFactor = 1.0 / 800.0, double turbPower = 0.5, int turbSize = 10) {
+Image* GenerateSand(int width, int height) {
+	double xFactor = 5.0 / 1000.0;
+	double yFactor = 12.0 / 1000.0;
+	double turbFactor = 1.0 / 800.0;
+	double turbPower = 0.5;
+	int turbSize = 10;
 	// Initialize Variables:
 	Image *terrain = new Image(width, height); // Output Map
-	double noise, amplitude; // Calculation Variables
+	double noise; // Calculation Variables
 	int value;
 	const double PI = 3.141592653589793238463;
 
@@ -29,9 +29,9 @@ Image* GenerateSand(int width, int height, double xFactor = 5.0 / 1000.0, double
 			if (value < 90) value = 90;
 
 			// Output heightmap to image:
-			(*terrain)[y][x].red = value * 1.57;
-			(*terrain)[y][x].green = value * 1.35;
-			(*terrain)[y][x].blue = value * 1;
+			(*terrain)[y][x].red = int(value * 1.57);
+			(*terrain)[y][x].green = int(value * 1.35);
+			(*terrain)[y][x].blue = int(value * 1);
 		}
 	}
 

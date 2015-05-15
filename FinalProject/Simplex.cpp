@@ -1,4 +1,4 @@
-#include "Simplex.h"
+#include "CpE462-Project.h"
 
 //(3.0-sqrt(3.0))/6.0
 #define G2 (0.21132486540518711774542560974902)
@@ -27,12 +27,12 @@ Simplex::~Simplex() {
 }
 
 double Simplex::Noise(double xin, double yin) {
-	double n0, n1, n2; // Noise contributions from the three corners
+	//double n0, n1, n2; // Noise contributions from the three corners
 	// Skew the input space to determine which simplex cell we're in
 	//double F2 = 0.5*(sqrt(3.0)-1.0);//0.36602540378443864676372317075294
 	double s = (xin + yin)*0.36602540378443864676372317075294; // Hairy factor for 2D
-	int i = xin + s;//floor(xin+s)
-	int j = yin + s;//floor(yin+s)
+	int i = int(xin + s);//floor(xin+s)
+	int j = int(yin + s);//floor(yin+s)
 	double t = (i + j)*G2;
 	double X0 = i - t; // Unskew the cell origin back to (x,y) space
 	double Y0 = j - t;
