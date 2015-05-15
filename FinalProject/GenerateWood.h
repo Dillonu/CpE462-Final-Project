@@ -9,7 +9,7 @@ Image* GenerateWood(int width, int height){
 
 	// Initialize Variables:
 	Image *terrain = new Image(width, height); // Output Map
-	double noise, amplitude; // Calculation Variables
+	double xValue, yValue, turb, distValue, sineValue;
 	int value;
 	const double PI = 3.141592653589793238463;
 
@@ -27,11 +27,11 @@ Image* GenerateWood(int width, int height){
 	for (int y = 0; y < height; y++) {
 		for (int x = 0; x < width; x++) {
 
-			double xValue = (x - width / 2)/((double)width);
-			double yValue = (y - height / 2) / ((double)height);
-			double turb = turbPower*generator.Turbulence(x*turbFactor, y*turbFactor, octaves);
-			double distValue = (sqrt(xValue * xValue + yValue * yValue) + turb);
-			double sineValue = 128*fabs(sin(2*distValue*PI*xyFactor));
+			xValue = (x - width / 2)/((double)width);
+			yValue = (y - height / 2) / ((double)height);
+			turb = turbPower*generator.Turbulence(x*turbFactor, y*turbFactor, octaves);
+			distValue = (sqrt(xValue * xValue + yValue * yValue) + turb);
+			sineValue = 128*fabs(sin(2*distValue*PI*xyFactor));
 			
 
 			// Convert the 0.0 to 1.0 noise value to a 0 to 255 RGB value:
